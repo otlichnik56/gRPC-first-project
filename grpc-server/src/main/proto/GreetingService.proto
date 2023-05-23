@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package org.example.grpc;
+
+message GrpcRequest {
+  string command = 1;
+}
+
+message GrpcResponse {
+  int32 temperature_sensor = 1;
+  bytes image_web = 2;
+}
+
+
+service GreetingService {
+  rpc serverResponse(GrpcRequest) returns (stream GrpcResponse) {};
+}
